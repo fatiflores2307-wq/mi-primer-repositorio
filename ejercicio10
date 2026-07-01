@@ -1,0 +1,6 @@
+# Altura del triángulo
+altura = 5
+
+# Generar el triángulo rectángulo con asteriscos
+for i in range(1, altura + 1):
+    print("*" * i)
