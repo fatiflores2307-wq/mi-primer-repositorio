@@ -1,0 +1,23 @@
+# Listas de ejemplo
+lista_principal = [5, 1, 22, 25, 6, -1, 8, 10]
+subsecuencia = [1, 6, -1, 10] # Debe devolver True
+
+# Punteros para recorrer ambas listas
+i = 0  # Puntero para la lista principal
+j = 0  # Puntero para la subsecuencia a verificar
+
+# Recorrer la lista principal e ir buscando los elementos de la subsecuencia en orden
+while i < len(lista_principal) and j < len(subsecuencia):
+    # Si encontramos una coincidencia, avanzamos al siguiente elemento de la subsecuencia
+    if lista_principal[i] == subsecuencia[j]:
+        j += 1
+    # Siempre avanzamos al siguiente elemento de la lista principal
+    i += 1
+
+# Si el puntero j avanzó hasta el final, significa que encontramos todos los elementos en orden
+es_subsecuencia = (j == len(subsecuencia))
+
+# Mostrar resultados
+print(f"Lista principal: {lista_principal}")
+print(f"Subsecuencia a evaluar: {subsecuencia}")
+print(f"¿Es una subsecuencia válida?: {es_subsecuencia}")
