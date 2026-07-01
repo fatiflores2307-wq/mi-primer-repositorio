@@ -1,0 +1,27 @@
+# Tuplas anidadas (datos de personas)
+datos = (("Juan", 25), ("María", 30), ("Pedro", 28))
+
+# Acceder a elementos específicos usando múltiples índices
+# datos[índice_tupla_externa][índice_elemento_interno]
+
+# Datos de Juan (primera tupla, índice 0)
+nombre_juan = datos[0][0]
+edad_juan = datos[0][1]
+
+# Datos de María (segunda tupla, índice 1)
+nombre_maria = datos[1][0]
+edad_maria = datos[1][1]
+
+# Datos de Pedro (tercera tupla, índice 2)
+nombre_pedro = datos[2][0]
+edad_pedro = datos[2][1]
+
+# Mostrar la información accedida
+print(f"Nombre: {nombre_juan}, Edad: {edad_juan}")
+print(f"Nombre: {nombre_maria}, Edad: {edad_maria}")
+print(f"Nombre: {nombre_pedro}, Edad: {edad_pedro}")
+
+# Ejemplo de acceso y recorrido usando un bucle for (Desempaquetado de tuplas)
+print("\nRecorrido con bucle:")
+for nombre, edad in datos:
+    print(f" - {nombre} tiene {edad} años.")
