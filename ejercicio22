@@ -1,0 +1,19 @@
+# Texto original
+texto = "hola mundo hola python mundo mundo"
+
+# Separar el texto en una lista de palabras usando split()
+palabras = texto.split()
+
+# Inicializar un diccionario vacío para almacenar las frecuencias
+frecuencias = {}
+
+# Contar la frecuencia de cada palabra
+for palabra in palabras:
+    # get(palabra, 0) devuelve 0 si la palabra no existe aún en el diccionario
+    frecuencias[palabra] = frecuencias.get(palabra, 0) + 1
+
+# Mostrar el resultado
+print(f"Texto original: '{texto}'")
+print("\nFrecuencia de cada palabra:")
+for palabra, cantidad in frecuencias.items():
+    print(f" - {palabra}: {cantidad}")
