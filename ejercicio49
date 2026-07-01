@@ -1,0 +1,43 @@
+# Diccionario anidado: estudiante -> {materia: [calificaciones]}
+registro_calificaciones = {
+    "Ana": {
+        "Matemáticas": [8.5, 9.0, 7.8],
+        "Ciencias": [9.2, 8.8]
+    },
+    "Luis": {
+        "Matemáticas": [7.0, 8.2],
+        "Ciencias": [8.0, 8.5, 9.0]
+    },
+    "Sofía": {
+        "Matemáticas": [9.5, 10.0],
+        "Ciencias": [8.5, 9.0]
+    }
+}
+
+# 1. Calcular el promedio general por estudiante (todas sus materias y notas)
+print("=== PROMEDIOS POR ESTUDIANTE ===")
+for estudiante, materias in registro_calificaciones.items():
+    suma_notas = 0
+    cantidad_notas = 0
+    for materia, notas in materias.items():
+        suma_notas += sum(notas)
+        cantidad_notas += len(notas)
+    
+    promedio_estudiante = suma_notas / cantidad_notas if cantidad_notas > 0 else 0.0
+    print(f" - {estudiante}: {promedio_estudiante:.2f}")
+
+# 2. Calcular el promedio global por materia (todos los estudiantes incluidos)
+print("\n=== PROMEDIOS POR MATERIA ===")
+calificaciones_por_materia = {}
+
+# Recopilar todas las calificaciones de cada materia
+for estudiante, materias in registro_calificaciones.items():
+    for materia, notas in materias.items():
+        if materia not in calificaciones_por_materia:
+            calificaciones_por_materia[materia] = []
+        calificaciones_por_materia[materia].extend(notas)
+
+# Calcular e imprimir el promedio para cada materia
+for materia, notas in calificaciones_por_materia.items():
+    promedio_materia = sum(notas) / len(notas) if len(notas) > 0 else 0.0
+    print(f" - {materia}: {promedio_materia:.2f}")
