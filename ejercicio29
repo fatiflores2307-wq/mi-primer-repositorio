@@ -1,0 +1,22 @@
+# Variables iniciales
+peso = 70 # kg
+altura = 1.75 # metros
+
+# Calcular el Índice de Masa Corporal (IMC)
+imc = peso / (altura ** 2)
+
+# Clasificar según el valor de IMC
+if imc < 18.5:
+    clasificacion = "Bajo peso"
+elif imc <= 24.9:
+    clasificacion = "Normal"
+elif imc <= 29.9:
+    clasificacion = "Sobrepeso"
+else:
+    clasificacion = "Obesidad"
+
+# Mostrar el resultado en pantalla
+print(f"Peso: {peso} kg")
+print(f"Altura: {altura} m")
+print(f"Índice de Masa Corporal (IMC): {imc:.2f}")
+print(f"Clasificación del IMC: {clasificacion}")
