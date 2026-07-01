@@ -1,0 +1,18 @@
+# Calificación inicial
+calificacion = 85
+
+# Convertir calificación numérica a letra
+if calificacion >= 90:
+    letra = 'A'
+elif calificacion >= 80:
+    letra = 'B'
+elif calificacion >= 70:
+    letra = 'C'
+elif calificacion >= 60:
+    letra = 'D'
+else:
+    letra = 'F'
+
+# Mostrar el resultado
+print(f"Calificación numérica: {calificacion}")
+print(f"Calificación en letra: {letra}")
