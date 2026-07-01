@@ -1,0 +1,27 @@
+# Número decimal a convertir
+decimal = 29
+
+# Guardar una copia para el mensaje final
+decimal_original = decimal
+
+# Lista para almacenar los residuos
+residuos = []
+
+# Caso especial: Si el número es 0
+if decimal == 0:
+    binario = "0"
+else:
+    # Realizar divisiones sucesivas entre 2 usando un bucle while
+    temp = decimal
+    while temp > 0:
+        residuo = temp % 2
+        residuos.append(residuo) # Almacenar el residuo
+        temp = temp // 2         # División entera por 2
+    
+    # Invertir el orden de los residuos para construir el número binario
+    residuos_invertidos = residuos[::-1]
+    binario = "".join(str(r) for r in residuos_invertidos)
+
+# Mostrar el resultado
+print(f"Decimal: {decimal_original}")
+print(f"Binario: {binario}")
