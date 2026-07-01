@@ -1,0 +1,13 @@
+# Diccionarios de ejemplo
+diccionario1 = {"a": 1, "b": 2, "c": 3}
+diccionario2 = {"c": 4, "d": 5, "e": 6}
+
+# Fusión de diccionarios (Basic Dictionary Merger)
+# En Python 3.9+ podemos usar el operador de unión '|'
+# Si hay claves duplicadas (como 'c'), prevalecen los valores del segundo diccionario
+diccionario_fusionado = diccionario1 | diccionario2
+
+# Mostrar resultados
+print(f"Diccionario 1: {diccionario1}")
+print(f"Diccionario 2: {diccionario2}")
+print(f"Diccionario fusionado: {diccionario_fusionado}")
