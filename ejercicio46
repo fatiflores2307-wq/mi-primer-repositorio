@@ -1,0 +1,41 @@
+# Inicializar la agenda como un diccionario vacío
+agenda = {}
+
+# Función para agregar un contacto
+def agregar_contacto(nombre, telefono):
+    agenda[nombre] = telefono
+    print(f"Contacto '{nombre}' agregado exitosamente.")
+
+# Función para buscar un contacto
+def buscar_contacto(nombre):
+    if nombre in agenda:
+        print(f"Búsqueda: {nombre} -> Teléfono: {agenda[nombre]}")
+        return agenda[nombre]
+    else:
+        print(f"Búsqueda: El contacto '{nombre}' no existe en la agenda.")
+        return None
+
+# Función para eliminar un contacto
+def eliminar_contacto(nombre):
+    # Validar que el contacto exista antes de eliminarlo
+    if nombre in agenda:
+        del agenda[nombre]
+        print(f"Contacto '{nombre}' eliminado exitosamente.")
+    else:
+        print(f"Error: El contacto '{nombre}' no existe en la agenda y no se puede eliminar.")
+
+# --- PRUEBAS DE LA AGENDA ---
+print("=== AGENDA DE CONTACTOS ===")
+agregar_contacto("Juan Pérez", "7777-1234")
+agregar_contacto("María Gómez", "6666-5678")
+
+print("\n--- Buscar contactos ---")
+buscar_contacto("Juan Pérez")
+buscar_contacto("Carlos Mendoza") # No existe
+
+print("\n--- Eliminar contactos ---")
+eliminar_contacto("Carlos Mendoza") # Intento de eliminar uno inexistente
+eliminar_contacto("Juan Pérez")     # Eliminar uno existente
+
+print("\n--- Estado final de la agenda ---")
+print(agenda)
