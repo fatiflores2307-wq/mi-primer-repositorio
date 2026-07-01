@@ -1,0 +1,47 @@
+import string
+
+# Texto a analizar
+texto_ejemplo = (
+    "Python es un lenguaje de programación de alto nivel. "
+    "Es muy popular para ciencia de datos y desarrollo web. "
+    "Aprender Python es divertido y útil."
+)
+
+# 1. Contar oraciones (separadas por punto '.')
+# Dividimos por punto y filtramos oraciones vacías creadas por el punto final
+oraciones = [oracion.strip() for oracion in texto_ejemplo.split(".") if oracion.strip()]
+total_oraciones = len(oraciones)
+
+# Limpiar el texto de signos de puntuación y pasar a minúsculas para un conteo preciso de palabras
+texto_limpio = texto_ejemplo.translate(str.maketrans("", "", string.punctuation))
+palabras = texto_limpio.lower().split()
+
+# 2. Calcular número total de palabras
+total_palabras = len(palabras)
+
+# 3. Calcular la longitud promedio de las palabras
+total_caracteres_palabras = sum(len(palabra) for palabra in palabras)
+longitud_promedio = total_caracteres_palabras / total_palabras if total_palabras > 0 else 0.0
+
+# 4. Encontrar la palabra más frecuente usando un diccionario
+frecuencias = {}
+for palabra in palabras:
+    frecuencias[palabra] = frecuencias.get(palabra, 0) + 1
+
+# Encontrar la clave con el valor de frecuencia más alto
+palabra_mas_frecuente = None
+max_frecuencia = 0
+for palabra, conteo in frecuencias.items():
+    if conteo > max_frecuencia:
+        max_frecuencia = conteo
+        palabra_mas_frecuente = palabra
+
+# Mostrar el reporte del análisis
+print("========================================")
+print("          REPORTE DE ANÁLISIS")
+print("========================================")
+print(f"Texto original:\n\"{texto_ejemplo}\"\n")
+print(f"• Número total de oraciones:         {total_oraciones}")
+print(f"• Número total de palabras:          {total_palabras}")
+print(f"• Longitud promedio de palabra:      {longitud_promedio:.2f} caracteres")
+print(f"• Palabra más frecuente:             '{palabra_mas_frecuente}' (Aparece {max_frecuencia} veces)")
