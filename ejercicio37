@@ -1,0 +1,22 @@
+# Números para calcular el MCD
+a = 48
+b = 18
+
+# Guardar copias de los valores originales para el resultado final
+num1 = a
+num2 = b
+
+# Implementar el algoritmo de Euclides usando un bucle while
+while b != 0:
+    # Intercambiar valores:
+    # 'a' toma el valor de 'b'
+    # 'b' toma el residuo de dividir 'a' entre 'b'
+    a, b = b, a % b
+
+# El MCD queda almacenado en la variable 'a'
+mcd = a
+
+# Mostrar el resultado
+print(f"Número 1: {num1}")
+print(f"Número 2: {num2}")
+print(f"El Máximo Común Divisor (MCD) de {num1} y {num2} es: {mcd}")
