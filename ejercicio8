@@ -1,0 +1,14 @@
+# Inicializar los dos primeros números de la secuencia de Fibonacci
+a, b = 0, 1
+
+# Lista para almacenar la secuencia
+fibonacci = []
+
+# Bucle for para generar los primeros 10 números
+for _ in range(10):
+    fibonacci.append(a)
+    a, b = b, a + b
+
+# Mostrar el resultado
+print("Los primeros 10 números de la secuencia de Fibonacci son:")
+print(fibonacci)
