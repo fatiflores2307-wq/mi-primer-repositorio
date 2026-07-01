@@ -1,0 +1,12 @@
+# Tupla original
+tupla = (1, 2, 3, 2, 4, 2, 5)
+
+# Elemento a buscar
+elemento_a_buscar = 2
+
+# Contar apariciones usando el método count() de las tuplas
+apariciones = tupla.count(elemento_a_buscar)
+
+# Mostrar el resultado
+print(f"Tupla: {tupla}")
+print(f"El elemento '{elemento_a_buscar}' aparece {apariciones} veces en la tupla.")
