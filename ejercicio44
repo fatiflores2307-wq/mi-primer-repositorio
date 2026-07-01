@@ -1,0 +1,17 @@
+import math
+
+# Representar los puntos en el plano cartesiano como tuplas (x, y)
+punto1 = (3, 4)
+punto2 = (6, 8)
+
+# Desempaquetar las coordenadas de cada tupla
+x1, y1 = punto1
+x2, y2 = punto2
+
+# Aplicar la fórmula de la distancia euclidiana: sqrt((x2 - x1)^2 + (y2 - y1)^2)
+distancia = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+# Mostrar el resultado
+print(f"Punto 1: {punto1}")
+print(f"Punto 2: {punto2}")
+print(f"La distancia euclidiana entre ambos puntos es: {distancia:.2f}")
