@@ -1,0 +1,21 @@
+# Número de ejemplo
+numero = 1234
+
+# Guardar una copia del número original para mostrar el resultado final
+numero_original = numero
+
+# Inicializar el acumulador de la suma
+suma_digitos = 0
+
+# Usar el valor absoluto para manejar correctamente números negativos
+temp = abs(numero)
+
+# Bucle while para extraer y sumar cada dígito
+while temp > 0:
+    digito = temp % 10       # Obtener el último dígito (resto de dividir por 10)
+    suma_digitos += digito   # Sumar el dígito al acumulador
+    temp = temp // 10        # Eliminar el último dígito usando división entera
+
+# Mostrar el resultado
+print(f"Número: {numero_original}")
+print(f"Suma de sus dígitos: {suma_digitos}")
