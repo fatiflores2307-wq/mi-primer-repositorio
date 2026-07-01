@@ -1,0 +1,23 @@
+# Texto de ejemplo
+texto = "Anita lava la tina"
+
+# 1. Limpiar el texto: convertir a minúsculas y remover espacios
+texto_limpio = texto.lower().replace(" ", "")
+
+# 2. Usar un bucle para comparar los caracteres de los extremos hacia el centro
+es_palindromo = True
+n = len(texto_limpio)
+
+for i in range(n // 2):
+    # Comparar el carácter de la posición i con el de la posición simétrica desde el final
+    if texto_limpio[i] != texto_limpio[n - 1 - i]:
+        es_palindromo = False
+        break
+
+# Mostrar el resultado
+print(f"Texto original: '{texto}'")
+print(f"Texto simplificado: '{texto_limpio}'")
+if es_palindromo:
+    print("Resultado: SÍ es un palíndromo.")
+else:
+    print("Resultado: NO es un palíndromo.")
