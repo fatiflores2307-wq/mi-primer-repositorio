@@ -1,0 +1,32 @@
+# Valores iniciales
+a, b, c = 15, 8, 22
+
+# Determinar el orden de menor a mayor usando solo condicionales
+if a <= b and a <= c:
+    menor = a
+    if b <= c:
+        medio = b
+        mayor = c
+    else:
+        medio = c
+        mayor = b
+elif b <= a and b <= c:
+    menor = b
+    if a <= c:
+        medio = a
+        mayor = c
+    else:
+        medio = c
+        mayor = a
+else:
+    menor = c
+    if a <= b:
+        medio = a
+        mayor = b
+    else:
+        medio = b
+        mayor = a
+
+# Mostrar los números ordenados
+print(f"Números originales: a={a}, b={b}, c={c}")
+print(f"Números ordenados de menor a mayor: {menor}, {medio}, {mayor}")
