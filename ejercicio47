@@ -1,0 +1,18 @@
+# Texto de ejemplo
+texto = "hola python"
+
+# Inicializar un diccionario vacío para almacenar las frecuencias de caracteres
+frecuencias_caracteres = {}
+
+# Iterar sobre cada carácter del texto
+for caracter in texto:
+    # Usar .get(caracter, 0) para obtener el conteo actual o iniciar en 0 si es la primera vez
+    frecuencias_caracteres[caracter] = frecuencias_caracteres.get(caracter, 0) + 1
+
+# Mostrar resultados
+print(f"Texto original: '{texto}'")
+print("\nFrecuencia de cada carácter:")
+for caracter, cantidad in frecuencias_caracteres.items():
+    # Mostrar el espacio en blanco de forma descriptiva para mayor claridad
+    nombre_caracter = f"'{caracter}'" if caracter != " " else "Espacio ' '"
+    print(f" - {nombre_caracter}: {cantidad}")
