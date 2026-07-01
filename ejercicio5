@@ -1,0 +1,16 @@
+# Lados del triángulo
+lado1 = 3
+lado2 = 4
+lado3 = 5
+
+# Comprobar si pueden formar un triángulo (teorema de la desigualdad triangular)
+if (lado1 + lado2 > lado3) and (lado1 + lado3 > lado2) and (lado2 + lado3 > lado1):
+    puede_formar = True
+else:
+    puede_formar = False
+
+# Mostrar el resultado
+if puede_formar:
+    print(f"Los lados {lado1}, {lado2} y {lado3} SI pueden formar un triángulo.")
+else:
+    print(f"Los lados {lado1}, {lado2} y {lado3} NO pueden formar un triángulo.")
