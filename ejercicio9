@@ -1,0 +1,17 @@
+# Cadena de texto
+texto = "Hola Mundo Python"
+
+# Definir las vocales (tanto en minúsculas como en mayúsculas)
+vocales = "aeiouAEIOU"
+
+# Inicializar el contador de vocales
+contador = 0
+
+# Contar las vocales en el texto
+for caracter in texto:
+    if caracter in vocales:
+        contador += 1
+
+# Mostrar el resultado
+print(f"El texto es: '{texto}'")
+print(f"El número total de vocales es: {contador}")
