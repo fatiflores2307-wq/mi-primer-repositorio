@@ -1,0 +1,62 @@
+import random
+
+# Función para generar contraseñas seguras y configurables
+def generar_contraseña(longitud=12, incluir_mayusculas=True, incluir_numeros=True, incluir_simbolos=True):
+    # Definir los conjuntos de caracteres como listas
+    minusculas = list("abcdefghijklmnopqrstuvwxyz")
+    mayusculas = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    numeros = list("0123456789")
+    simbolos = list("!@#$%^&*()_+-=[]{}|;:,.<>?")
+    
+    # Inicializar la lista de caracteres garantizados (al menos uno de cada tipo solicitado)
+    garantizados = []
+    # El pool contendrá todos los caracteres disponibles para rellenar la contraseña
+    pool = list(minusculas)
+    
+    # Siempre incluir al menos una minúscula
+    garantizados.append(random.choice(minusculas))
+    
+    # Evaluar criterios personalizables
+    if incluir_mayusculas:
+        garantizados.append(random.choice(mayusculas))
+        pool.extend(mayusculas)
+        
+    if incluir_numeros:
+        garantizados.append(random.choice(numeros))
+        pool.extend(numeros)
+        
+    if incluir_simbolos:
+        garantizados.append(random.choice(simbolos))
+        pool.extend(simbolos)
+    
+    # Si la longitud solicitada es menor que el mínimo de caracteres requeridos, ajustar la longitud
+    if longitud < len(garantizados):
+        longitud = len(garantizados)
+        
+    # Rellenar el resto de la longitud seleccionando aleatoriamente del pool completo
+    faltante = longitud - len(garantizados)
+    relleno = [random.choice(pool) for _ in range(faltante)]
+    
+    # Combinar los caracteres garantizados con el relleno
+    contraseña_lista = garantizados + relleno
+    
+    # Mezclar la lista para que la posición de los caracteres no sea predecible
+    random.shuffle(contraseña_lista)
+    
+    # Convertir la lista final de vuelta a una cadena de texto
+    return "".join(contraseña_lista)
+
+# --- PRUEBAS DEL GENERADOR ---
+print("=== GENERADOR DE CONTRASEÑAS SEGURAS ===")
+
+# Prueba 1: Contraseña segura por defecto (Longitud 12, con todo)
+pwd1 = generar_contraseña(longitud=12)
+print(f"1. Contraseña Completa (L=12):  {pwd1}")
+
+# Prueba 2: Contraseña de longitud 8, sin caracteres especiales (símbolos)
+pwd2 = generar_contraseña(longitud=8, incluir_simbolos=False)
+print(f"2. Sin Símbolos (L=8):         {pwd2}")
+
+# Prueba 3: Contraseña larga (L=16) solo con minúsculas y números
+pwd3 = generar_contraseña(longitud=16, incluir_mayusculas=False, incluir_simbolos=False)
+print(f"3. Solo Núm y Minus (L=16):    {pwd3}")
