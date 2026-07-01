@@ -1,0 +1,17 @@
+# Diccionario de traducción español-inglés
+traducciones = {
+    "hola": "hello",
+    "mundo": "world",
+    "python": "python"
+}
+
+# Palabra que deseamos traducir
+palabra_a_traducir = "hola"
+
+# Buscar traducción en el diccionario
+# Usamos el método .get() por seguridad si la palabra no existe
+traduccion = traducciones.get(palabra_a_traducir.lower(), "Traducción no disponible")
+
+# Mostrar el resultado
+print(f"Diccionario completo: {traducciones}")
+print(f"La traducción de '{palabra_a_traducir}' al inglés es: '{traduccion}'")
