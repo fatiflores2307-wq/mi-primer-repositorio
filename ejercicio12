@@ -1,0 +1,11 @@
+# Lista de números
+numeros = [23, 45, 12, 67, 34, 89, 21]
+
+# Encontrar el número mayor y menor utilizando funciones integradas
+numero_mayor = max(numeros)
+numero_menor = min(numeros)
+
+# Mostrar el resultado
+print(f"Lista de números: {numeros}")
+print(f"El número mayor es: {numero_mayor}")
+print(f"El número menor es: {numero_menor}")
