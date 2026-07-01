@@ -1,0 +1,21 @@
+# Crear diccionario de países y sus capitales
+paises_capitales = {
+    "El Salvador": "San Salvador",
+    "España": "Madrid",
+    "Francia": "París",
+    "Japón": "Tokio"
+}
+
+# Mostrar el diccionario completo
+print("Diccionario completo:")
+print(paises_capitales)
+
+# Acceder a la capital de un país específico utilizando su clave
+pais = "El Salvador"
+capital = paises_capitales[pais]
+print(f"\nLa capital de '{pais}' es: {capital}")
+
+# Recorrer e imprimir todos los elementos del diccionario
+print("\nLista detallada:")
+for pais, capital in paises_capitales.items():
+    print(f" - País: {pais} | Capital: {capital}")
