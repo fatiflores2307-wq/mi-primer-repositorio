@@ -1,0 +1,12 @@
+# Listas de ejemplo (contienen algunos elementos duplicados y comunes)
+lista1 = [1, 2, 2, 3, 4, 5, 5, 6]
+lista2 = [4, 5, 5, 6, 7, 8, 8, 9]
+
+# Encontrar los elementos comunes sin duplicados utilizando conjuntos (sets)
+# El operador '&' realiza la operación de intersección de conjuntos
+comunes_sin_duplicados = list(set(lista1) & set(lista2))
+
+# Mostrar los resultados
+print(f"Lista 1: {lista1}")
+print(f"Lista 2: {lista2}")
+print(f"Elementos en común (sin duplicados): {comunes_sin_duplicados}")
