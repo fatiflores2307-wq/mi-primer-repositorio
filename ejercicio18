@@ -1,0 +1,13 @@
+# Lista original
+mi_lista = [1, 2, 3, 4, 5]
+
+# Convertir de Lista a Tupla
+mi_tupla = tuple(mi_lista)
+
+# Convertir de Tupla a Lista
+lista_desde_tupla = list(mi_tupla)
+
+# Mostrar los resultados y sus tipos
+print(f"1. Lista original: {mi_lista} (Tipo: {type(mi_lista)})")
+print(f"2. Convertida a tupla: {mi_tupla} (Tipo: {type(mi_tupla)})")
+print(f"3. Convertida de vuelta a lista: {lista_desde_tupla} (Tipo: {type(lista_desde_tupla)})")
