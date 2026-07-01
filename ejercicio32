@@ -1,0 +1,31 @@
+import math
+
+# Número a verificar
+numero = 17
+
+# Inicializar bandera para determinar si es primo
+es_primo = True
+
+# Un número menor o igual a 1 no es primo
+if numero <= 1:
+    es_primo = False
+# El 2 es el único número primo par
+elif numero == 2:
+    es_primo = True
+# Si es par y mayor a 2, no es primo
+elif numero % 2 == 0:
+    es_primo = False
+else:
+    # Optimización: comprobar divisores solo hasta la raíz cuadrada de 'numero'
+    # Se utiliza un paso de 2 para comprobar solo números impares
+    limite = int(math.isqrt(numero))
+    for i in range(3, limite + 1, 2):
+        if numero % i == 0:
+            es_primo = False
+            break
+
+# Mostrar el resultado
+if es_primo:
+    print(f"El número {numero} SI es primo.")
+else:
+    print(f"El número {numero} NO es primo.")
