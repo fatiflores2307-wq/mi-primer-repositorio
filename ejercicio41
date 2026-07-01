@@ -1,0 +1,11 @@
+# Lista original con sublistas (un nivel de anidamiento)
+lista_anidada = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+
+# Aplanar la lista usando list comprehension con dos bucles for
+# - El primer 'for sublista in lista_anidada' recorre cada sublista
+# - El segundo 'for elemento in sublista' recorre cada elemento dentro de la sublista
+lista_plana = [elemento for sublista in lista_anidada for elemento in sublista]
+
+# Mostrar resultados
+print(f"Lista anidada original: {lista_anidada}")
+print(f"Lista plana resultante: {lista_plana}")
