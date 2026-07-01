@@ -1,0 +1,9 @@
+# Lista original
+original = [1, 2, 3, 4, 5]
+
+# Invertir la lista usando slicing (rebanado) con paso negativo [::-1]
+invertida = original[::-1]
+
+# Mostrar el resultado
+print(f"Lista original: {original}")
+print(f"Lista invertida: {invertida}")
