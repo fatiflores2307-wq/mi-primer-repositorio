@@ -1,0 +1,29 @@
+# Entradas de los jugadores
+jugador1 = "piedra"
+jugador2 = "tijeras"
+
+# Opciones válidas en el juego
+opciones_validas = ["piedra", "papel", "tijeras"]
+
+# 1. Validar las entradas de ambos jugadores
+if jugador1.lower() not in opciones_validas or jugador2.lower() not in opciones_validas:
+    print("Error: Una o ambas opciones no son válidas. Debe elegir entre 'piedra', 'papel' o 'tijeras'.")
+else:
+    # Convertir a minúsculas para estandarizar
+    j1 = jugador1.lower()
+    j2 = jugador2.lower()
+    
+    # 2. Determinar el ganador o si hay empate
+    if j1 == j2:
+        resultado = "Empate"
+    elif (j1 == "piedra" and j2 == "tijeras") or \
+         (j1 == "tijeras" and j2 == "papel") or \
+         (j1 == "papel" and j2 == "piedra"):
+        resultado = "Gana el Jugador 1"
+    else:
+        resultado = "Gana el Jugador 2"
+
+    # Mostrar elecciones y resultado
+    print(f"Jugador 1: {jugador1}")
+    print(f"Jugador 2: {jugador2}")
+    print(f"Resultado: {resultado}")
