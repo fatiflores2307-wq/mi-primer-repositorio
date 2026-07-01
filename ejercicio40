@@ -1,0 +1,26 @@
+# Lista de ejemplo y valor de k (posiciones a rotar)
+lista = [1, 2, 3, 4, 5]
+k = 7
+
+# Guardar copia de la lista original
+lista_original = list(lista)
+
+n = len(lista)
+
+# Validar que la lista no esté vacía
+if n == 0:
+    lista_rotada = []
+else:
+    # 1. Ajustar k para manejar casos donde k es mayor que la longitud de la lista
+    # Usamos la operación módulo (%) para obtener el desplazamiento efectivo
+    desplazamiento_efectivo = k % n
+
+    # 2. Realizar la rotación mediante slicing (rebanado de listas)
+    # lista[-desplazamiento_efectivo:] toma los elementos del final que pasan al principio
+    # lista[:-desplazamiento_efectivo] toma el resto de elementos
+    lista_rotada = lista[-desplazamiento_efectivo:] + lista[:-desplazamiento_efectivo]
+
+# Mostrar resultados
+print(f"Lista original: {lista_original}")
+print(f"k posiciones a rotar: {k}")
+print(f"Lista rotada a la derecha: {lista_rotada}")
