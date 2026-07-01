@@ -1,0 +1,12 @@
+# Crear una tupla con los meses del año
+meses = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+         "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+
+# Acceder a un mes específico
+# Nota: Los índices en Python comienzan en 0. Para acceder al 7º mes (Julio), usamos el índice 6
+indice = 6
+mes_especifico = meses[indice]
+
+# Mostrar el resultado
+print(f"Todos los meses (Tupla): {meses}")
+print(f"El mes seleccionado en el índice {indice} es: {mes_especifico}")
