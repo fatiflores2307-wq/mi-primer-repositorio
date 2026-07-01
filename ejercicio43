@@ -1,0 +1,13 @@
+# Lista original de números
+lista_numeros = [12, 5, 8, 3, 21, 14, 7, 10]
+
+# Filtrar números pares (divisibles por 2 con residuo 0)
+pares = [x for x in lista_numeros if x % 2 == 0]
+
+# Filtrar números impares (no divisibles por 2, es decir, con residuo diferente de 0)
+impares = [x for x in lista_numeros if x % 2 != 0]
+
+# Mostrar resultados
+print(f"Lista original: {lista_numeros}")
+print(f"Números pares: {pares}")
+print(f"Números impares: {impares}")
