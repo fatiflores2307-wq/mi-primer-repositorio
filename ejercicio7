@@ -1,0 +1,19 @@
+# Definir el número
+numero = 5 # Puedes cambiar este valor o usar: int(input("Ingrese un número: "))
+
+# Guardar el número original para mostrar en el mensaje
+original_numero = numero
+
+# Inicializar la variable del factorial
+factorial = 1
+
+# Bucle while para calcular el factorial
+if numero < 0:
+    print("El factorial no está definido para números negativos.")
+else:
+    while numero > 0:
+        factorial *= numero
+        numero -= 1
+
+    # Mostrar el resultado
+    print(f"El factorial de {original_numero} es: {factorial}")
