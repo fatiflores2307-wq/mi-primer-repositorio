@@ -1,0 +1,21 @@
+# Contraseña a validar
+contraseña = "Python3.9!"
+
+# 1. Verificar los criterios de seguridad
+largo_valido = len(contraseña) >= 8
+tiene_mayuscula = any(char.isupper() for char in contraseña)
+tiene_numero = any(char.isdigit() for char in contraseña)
+# Se define como carácter especial aquel que no es alfanumérico (letra o número) ni espacio en blanco
+tiene_especial = any(not char.isalnum() and not char.isspace() for char in contraseña)
+
+# 2. Comprobar si cumple todos los criterios
+es_segura = largo_valido and tiene_mayuscula and tiene_numero and tiene_especial
+
+# Mostrar los resultados del análisis
+print(f"Contraseña evaluada: '{contraseña}'")
+print(f" - Longitud adecuada (8+ caracteres): {'Cumple' if largo_valido else 'No cumple'}")
+print(f" - Contiene mayúscula(s): {'Cumple' if tiene_mayuscula else 'No cumple'}")
+print(f" - Contiene número(s): {'Cumple' if tiene_numero else 'No cumple'}")
+print(f" - Contiene carácter(es) especial(es): {'Cumple' if tiene_especial else 'No cumple'}")
+
+print(f"\nResultado: {'CONTRASEÑA SEGURA' if es_segura else 'CONTRASEÑA INSEGURA'}")
