@@ -1,0 +1,42 @@
+# Estructura del inventario: 
+# Diccionario donde la clave es la categoría y el valor es una lista de tuplas (nombre, precio, stock)
+inventario = {
+    "Electrónica": [
+        ("Laptop", 1200.00, 5),
+        ("Monitor", 300.00, 2),  # Bajo stock
+        ("Teclado", 45.00, 10)
+    ],
+    "Hogar": [
+        ("Cafetera", 85.00, 1),   # Bajo stock
+        ("Licuadora", 60.00, 4),
+        ("Sartén", 25.00, 0)      # Bajo stock (sin unidades)
+    ],
+    "Librería": [
+        ("Cuaderno", 2.50, 50),
+        ("Bolígrafo", 1.20, 100)
+    ]
+}
+
+# Inicializar acumuladores y umbrales
+valor_total_inventario = 0.0
+bajo_stock_limite = 3
+productos_bajo_stock = []
+
+# Recorrer la estructura combinada (diccionario -> listas -> tuplas)
+for categoria, lista_productos in inventario.items():
+    for producto in lista_productos:
+        # Desempaquetar la tupla
+        nombre, precio, stock = producto
+        
+        # 1. Calcular el valor de este producto en el inventario y sumarlo al total
+        valor_total_inventario += precio * stock
+        
+        # 2. Verificar si cumple el criterio de bajo stock
+        if stock <= bajo_stock_limite:
+            productos_bajo_stock.append((nombre, stock, categoria))
+# Mostrar los resultados
+print("=== REPORTE DE INVENTARIO ===")
+print(f"Valor total en almacén: ${valor_total_inventario:,.2f}")
+print(f"\nAlerta de stock bajo (límite: {bajo_stock_limite} unidades o menos):")
+for nombre, stock, categoria in productos_bajo_stock:
+    print(f" - [Categoría: {categoria}] {nombre} -> {stock} unidades disponibles.")
