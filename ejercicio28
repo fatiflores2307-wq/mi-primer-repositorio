@@ -1,0 +1,19 @@
+# Lados del triángulo
+lado1, lado2, lado3 = 5, 5, 5
+
+# 1. Verificar si es un triángulo válido usando el teorema de la desigualdad triangular
+es_valido = (lado1 + lado2 > lado3) and (lado1 + lado3 > lado2) and (lado2 + lado3 > lado1)
+
+if es_valido:
+    # 2. Clasificar el triángulo según la longitud de sus lados
+    if lado1 == lado2 == lado3:
+        tipo = "Equilátero"
+    elif lado1 == lado2 or lado1 == lado3 or lado2 == lado3:
+        tipo = "Isósceles"
+    else:
+        tipo = "Escaleno"
+    
+    print(f"Los lados {lado1}, {lado2} y {lado3} forman un triángulo válido.")
+    print(f"Tipo de triángulo: {tipo}")
+else:
+    print(f"Los lados {lado1}, {lado2} y {lado3} NO pueden formar un triángulo válido.")
