@@ -1,0 +1,17 @@
+# Tupla de números
+numeros = (10, 20, 30, 40, 50)
+
+# Calcular la suma de todos los números
+suma_total = sum(numeros)
+
+# Calcular el promedio (suma total dividida entre el número de elementos)
+promedio = suma_total / len(numeros)
+
+# Obtener el número máximo
+maximo = max(numeros)
+
+# Mostrar los resultados
+print(f"Tupla de números: {numeros}")
+print(f"Suma total: {suma_total}")
+print(f"Promedio: {promedio}")
+print(f"Máximo: {maximo}")
