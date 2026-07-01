@@ -1,0 +1,113 @@
+# Estructura de datos: Diccionario de cuentas bancarias
+# clave: número de cuenta -> valor: diccionario {titular, saldo, tipo, historial (lista de tuplas)}
+cuentas = {
+    "1001": {
+        "titular": "Ana López",
+        "saldo": 500.00,
+        "tipo": "Ahorros",
+        "historial": [("Apertura", 500.00, 500.00)]
+    },
+    "1002": {
+        "titular": "Luis Gómez",
+        "saldo": 150.00,
+        "tipo": "Corriente",
+        "historial": [("Apertura", 150.00, 150.00)]
+    }
+}
+
+# Función para realizar un depósito
+def depositar(num_cuenta, monto):
+    if num_cuenta not in cuentas:
+        print(f"Error: La cuenta {num_cuenta} no existe.")
+        return False
+    if monto <= 0:
+        print("Error: El monto a depositar debe ser mayor que cero.")
+        return False
+    
+    cuentas[num_cuenta]["saldo"] += monto
+    nuevo_saldo = cuentas[num_cuenta]["saldo"]
+    # Agregar transacción al historial: (tipo, monto, saldo resultante)
+    cuentas[num_cuenta]["historial"].append(("Depósito", monto, nuevo_saldo))
+    print(f"Depósito de ${monto:.2f} exitoso en la cuenta {num_cuenta}. Nuevo saldo: ${nuevo_saldo:.2f}")
+    return True
+
+# Función para realizar un retiro con validaciones
+def retirar(num_cuenta, monto):
+    if num_cuenta not in cuentas:
+        print(f"Error: La cuenta {num_cuenta} no existe.")
+        return False
+    if monto <= 0:
+        print("Error: El monto a retirar debe ser mayor que cero.")
+        return False
+    
+    saldo_actual = cuentas[num_cuenta]["saldo"]
+    
+    # Requerimiento: Validar fondos suficientes y no permitir saldos negativos
+    if monto > saldo_actual:
+        print(f"Error: Fondos insuficientes en la cuenta {num_cuenta}. Saldo disponible: ${saldo_actual:.2f}")
+        return False
+    
+    cuentas[num_cuenta]["saldo"] -= monto
+    nuevo_saldo = cuentas[num_cuenta]["saldo"]
+    # Agregar transacción al historial
+    cuentas[num_cuenta]["historial"].append(("Retiro", monto, nuevo_saldo))
+    print(f"Retiro de ${monto:.2f} exitoso de la cuenta {num_cuenta}. Nuevo saldo: ${nuevo_saldo:.2f}")
+    return True
+
+# Función para realizar transferencias entre cuentas
+def transferir(cuenta_origen, cuenta_destino, monto):
+    if cuenta_origen not in cuentas or cuenta_destino not in cuentas:
+        print("Error: Una o ambas cuentas no existen en el sistema.")
+        return False
+    if monto <= 0:
+        print("Error: El monto a transferir debe ser mayor que cero.")
+        return False
+    
+    saldo_origen = cuentas[cuenta_origen]["saldo"]
+    
+    # Validar fondos del remitente
+    if monto > saldo_origen:
+        print(f"Error de transferencia: Fondos insuficientes en cuenta de origen {cuenta_origen}.")
+        return False
+    
+    # Debitamos del origen
+    cuentas[cuenta_origen]["saldo"] -= monto
+    nuevo_saldo_origen = cuentas[cuenta_origen]["saldo"]
+    cuentas[cuenta_origen]["historial"].append((f"Transferencia enviada a cuenta {cuenta_destino}", monto, nuevo_saldo_origen))
+    
+    # Acreditamos al destino
+    cuentas[cuenta_destino]["saldo"] += monto
+    nuevo_saldo_destino = cuentas[cuenta_destino]["saldo"]
+    cuentas[cuenta_destino]["historial"].append((f"Transferencia recibida de cuenta {cuenta_origen}", monto, nuevo_saldo_destino))
+    
+    print(f"Transferencia de ${monto:.2f} desde la cuenta {cuenta_origen} a la cuenta {cuenta_destino} exitosa.")
+    return True
+
+# Función para imprimir el historial de transacciones de una cuenta
+def mostrar_historial(num_cuenta):
+    if num_cuenta not in cuentas:
+        print(f"Error: La cuenta {num_cuenta} no existe.")
+        return
+    
+    print(f"\n--- HISTORIAL DE LA CUENTA {num_cuenta} (Titular: {cuentas[num_cuenta]['titular']}) ---")
+    for transaccion in cuentas[num_cuenta]["historial"]:
+        tipo, monto, saldo_res = transaccion
+        print(f" - Operación: {tipo:<40} | Monto: ${monto:<10.2f} | Saldo Restante: ${saldo_res:.2f}")
+
+# --- DEMOSTRACIÓN DE OPERACIONES ---
+print("=== SISTEMA BANCARIO ===")
+# Depositar en cuenta de Ana
+depositar("1001", 200.00)
+
+# Retirar de cuenta de Luis
+retirar("1002", 50.00)
+
+# Intentar retirar sin fondos suficientes (debe fallar)
+retirar("1002", 300.00)
+
+# Transferir de Ana a Luis
+transferir("1001", "1002", 150.00)
+
+# Consultar historial final de transacciones de ambos
+mostrar_historial("1001")
+mostrar_historial("1002")
