@@ -1,0 +1,6 @@
+# Crear la lista de los cuadrados de los números del 1 al 10 usando list comprehension
+cuadrados = [x**2 for x in range(1, 11)]
+
+# Mostrar el resultado
+print("Lista de los cuadrados de los números del 1 al 10:")
+print(cuadrados)
