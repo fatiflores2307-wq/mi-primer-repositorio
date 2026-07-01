@@ -1,0 +1,10 @@
+# Lista original con duplicados
+lista = [1, 2, 2, 3, 4, 4, 5, 5, 5]
+
+# Eliminar duplicados convirtiendo a conjunto (set) y de vuelta a lista
+# Nota: set() elimina los duplicados de forma eficiente ya que los conjuntos no admiten valores repetidos
+lista_sin_duplicados = list(set(lista))
+
+# Mostrar los resultados
+print(f"Lista original: {lista}")
+print(f"Lista sin duplicados: {lista_sin_duplicados}")
