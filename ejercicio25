@@ -1,0 +1,31 @@
+# Lista de productos (Lista que contiene diccionarios)
+productos = [
+    {
+        "nombre": "Laptop Gamer",
+        "precio": 1200.00,
+        "categorias": ("Electrónica", "Computación", "Gaming") # Tupla de categorías
+    },
+    {
+        "nombre": "Cafetera Express",
+        "precio": 85.50,
+        "categorias": ("Hogar", "Cocina") # Tupla de categorías
+    },
+    {
+        "nombre": "Monitor 4K",
+        "precio": 350.00,
+        "categorias": ("Electrónica", "Oficina") # Tupla de categorías
+    }
+]
+
+# Mostrar la información estructurada de los productos
+print("=== CATÁLOGO DE PRODUCTOS ===")
+for producto in productos:
+    # Cada producto es un diccionario
+    nombre = producto["nombre"]
+    precio = producto["precio"]
+    # Las categorías son una tupla (inmutable)
+    categorias = producto["categorias"]
+    
+    print(f"\nProducto: {nombre}")
+    print(f" - Precio: ${precio:.2f}")
+    print(f" - Categorías asociadas: {', '.join(categorias)}")
